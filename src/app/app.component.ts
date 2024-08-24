@@ -1,12 +1,16 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { loadRemoteModule } from '@angular-architects/module-federation-runtime';
+import { Component, OnInit } from '@angular/core';
+import { provideRouter, Route, RouterLink, RouterModule, RouterOutlet } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterLink, RouterOutlet],
+  // providers: [provideRouter(APP_ROUTES)],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'host-app';
