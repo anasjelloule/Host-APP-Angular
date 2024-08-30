@@ -17,6 +17,11 @@
 				"build": {
 					"builder": "ngx-build-plus:browser",
 					"options": {
+            "allowedCommonJsDependencies": [
+              "js-sha256",
+              "base64-js",
+              "react-dom/client"
+           ],
 						"outputPath": "dist/host-app",
 						"index": "src/index.html",
 						"polyfills": [

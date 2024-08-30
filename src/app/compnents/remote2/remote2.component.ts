@@ -4,6 +4,7 @@ import {  OnInit,  ViewContainerRef, Injector } from '@angular/core';
 
 import * as ReactDOM from 'react-dom/client';
 import React from 'react';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -19,9 +20,10 @@ export class Remote2Component implements OnInit{
 
 
 
-constructor(private viewContainerRef:ViewContainerRef,private injector:Injector){}
+constructor(private viewContainerRef:ViewContainerRef,private injector:Injector,private http: HttpClient){}
      async ngOnInit() {
       // console.log(window);
+      window.callAngularFunction = this.angularFunction.bind(this);
        const remote  = await loadRemoteModule({
         // remoteName: 'reactRemote',
         type: 'module',
@@ -51,4 +53,31 @@ constructor(private viewContainerRef:ViewContainerRef,private injector:Injector)
       //  zustandStore.increment();
       //  console.log(zustandStore.count); // Output: 1
      }
+
+     async login(){
+      this.http.post('http://localhost:3000/login',{}, { withCredentials: true }).subscribe();
+      // await fetch('http://localhost:3000/login', {
+      //   method: 'POST',
+      //   credentials: 'include' // Ensures cookies are sent
+      // });
+     }
+     async callProtectedApi() {
+      return this.http.get('http://localhost:3000/protected-route', { withCredentials: true }).subscribe();
+      // await fetch('http://localhost:3000/protected-route', {
+      //   method: 'GET',
+      //   credentials: 'include' // Ensures cookies are sent
+      // });
+    }
+     angularFunction(data: any) {
+      console.log('Angular Function called from React with data:');
+      return data;
+    }
+     callReactFunction() {
+      if (window.reactFunction) {
+        // Calling the React function
+        window.reactFunction({ message: 'Hello from Angular' });
+      } else {
+        console.log('React function is not available.');
+      }
+    }
 }
