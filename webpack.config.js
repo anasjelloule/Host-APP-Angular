@@ -5,6 +5,13 @@ module.exports = {
     uniqueName: "angularHost",
     publicPath: "auto",
   },
+  resolve: {
+    alias: {
+      // 'keycloak-js': './node_modules/keycloak-js/dist',
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      symlinks: false
+    }
+  },
   optimization: {
     runtimeChunk: false,
   },
@@ -15,7 +22,7 @@ module.exports = {
         store: "store@http://localhost:3000/assets/remoteEntry.js",
       },
       shared: {
-        ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }),
+        ...shareAll({ singleton: true, strictVersion: true, requiredVersion: 'auto' }, ["keycloak-js"]),
       },
     }),
   ],
