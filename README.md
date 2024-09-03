@@ -33,6 +33,7 @@ This repository is your gateway to building scalable, secure, and modular web ap
 
 
 #### 1. Clone the Repository
-#### 2. run `npm install`
-#### 3. run `npm start`
+#### 2. Go inside the repository
+#### 3. run `npm install`
+#### 4. run `npm start`
 make sure the remote app in react are started 
