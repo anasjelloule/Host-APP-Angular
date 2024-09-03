@@ -1,27 +1,38 @@
-# HostApp
+# 🚀 Angular Host Application - Microfrontend & Keycloak Integration
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+![Angular](https://img.shields.io/badge/Angular-v18+-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![React](https://img.shields.io/badge/React-Remote-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Keycloak](https://img.shields.io/badge/Keycloak-Secured-00A0A0?style=for-the-badge&logo=keycloak&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-API-339933?style=for-the-badge&logo=node.js&logoColor=white)
 
-## Development server
+Welcome to the **Angular Host Application**! This project is the cornerstone of a modern microfrontend architecture that integrates a React remote application, secured by Keycloak, and communicates with a Node.js backend API.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🎯 Overview
 
-## Code scaffolding
+This repository is your gateway to building scalable, secure, and modular web applications using the power of **Module Federation** and **Keycloak**. Here’s what this project offers:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Modular Architecture**: Leverage **Webpack Module Federation** to dynamically load and integrate remote React components.
+- **Secure by Design**: Employ **Keycloak** for robust, centralized authentication across both Angular and React applications.
+- **API Integration**: Seamlessly interact with a **Node.js backend** for data management and business logic.
 
-## Build
+## 🛠️ Key Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **🔗 Module Federation**: Dynamically load and render remote React components within the Angular host.
+- **🔐 Keycloak Authentication**: Centralized authentication and authorization across the microfrontend architecture.
+- **📡 API Communication**: Securely communicate with a Node.js backend using access tokens from Keycloak.
 
-## Running unit tests
+## 🚀 Quick Start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- **Node.js** (v21+)
+- **Angular CLI** (v18+)
+- **Keycloak** (v25+)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+#### 1. Clone the Repository
+#### 2. run `npm install`
+#### 3. run `npm start`
+make sure the remote app in react are started 
