@@ -1,13 +1,26 @@
-<h1 class="text-3xl font-bold underline">
+<!-- <h1 class="text-3xl font-bold underline">
   Hello world!
-</h1>
-<a [routerLink]="['/home']" >
+</h1> -->
+<!-- <a [routerLink]="['/home']" >
 Button mf Load
-</a>
+</a> -->
+<h1>This is From Angular</h1>
+<br/>
+<button [routerLink]="['/mf1']" style="padding: 10px;border-radius: 10px;border:1px solid black">
+  Go to MF React
+</button>
+
+<div style="display: flex;margin: 10px 0;gap: 10px;">
+  <!-- Check the logs  -->
+  <button (click)="loadRtp()" class="btn">load Rtp </button>
+  <button (click)="secure()" class="btn">callProtectedApi </button>
+  <button (click)="owner()" class="btn">I'm a the owner ? </button>
+  <button (click)="me()" class="btn">Ho i'am </button>
+  <!-- <button (click)="account()" class="btn">account</button> -->
+  <button (click)="logout()" class="btn">Logout </button>
+
+</div>
+Open the log
 <br/>
 <br/>
-<br/>
-<a [routerLink]="['/mf1']" >
-  MF1
-</a>
 <router-outlet></router-outlet>

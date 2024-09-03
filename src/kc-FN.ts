@@ -1,4 +1,4 @@
-import { KeycloakService,KeycloakOptions } from 'keycloak-angular';
+import { KeycloakService,KeycloakOptions, KeycloakEventType } from 'keycloak-angular';
 
 
 
@@ -71,6 +71,16 @@ export function initializeKeycloak(
           })
           .then(async (loggedIn) => {
             if (loggedIn) {
+              // alert(loggedIn);
+              window.keycloakInstance=keycloak.getKeycloakInstance();
+              keycloak.keycloakEvents$.subscribe(event => {
+                console.log(event,"keycloakEvent");
+                // this.keycloak.getToken();
+                if (event.type == KeycloakEventType.OnTokenExpired) {
+                   keycloak.updateToken(20);
+                  window.keycloakInstance=keycloak.getKeycloakInstance();
+                }
+              });
               console.log('loggedIn: ', {
                 username: keycloak.getUsername(),
                 roles: keycloak.getUserRoles().join(', '),

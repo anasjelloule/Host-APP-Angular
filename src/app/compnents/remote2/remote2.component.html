@@ -1,13 +1,15 @@
 
-<div #reactContainer></div>
+<div #reactContainer style="border: 2px dashed red;"></div>
 
 
-<button (click)="login()" class="bg-red-500 ">login</button>
+<!-- <button (click)="login()" class="bg-red-500 ">login</button> -->
 <br>
-<button (click)="callProtectedApi()" class="bg-red-500 ">callProtectedApi</button>
-<br>
-<br>
-<br>
-<button (click)="callReactFunction()">
-  callReactFunction
-</button>
+<div style="display: flex;gap:10px;margin: 10px 0;">
+  <button (click)="callProtectedApi()" style="padding: 10px;border-radius: 10px;border:1px solid black">callProtectedApi</button>
+
+
+  <button (click)="callReactFunction()" style="padding: 10px;border-radius: 10px;border:1px solid black">
+    callReactFunction
+  </button>
+</div>
+

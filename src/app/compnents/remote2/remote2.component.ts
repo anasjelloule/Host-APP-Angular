@@ -5,6 +5,7 @@ import {  OnInit,  ViewContainerRef, Injector } from '@angular/core';
 import * as ReactDOM from 'react-dom/client';
 import React from 'react';
 import { HttpClient } from '@angular/common/http';
+import { KeycloakEventType, KeycloakService } from 'keycloak-angular';
 
 
 @Component({
@@ -20,10 +21,13 @@ export class Remote2Component implements OnInit{
 
 
 
-constructor(private viewContainerRef:ViewContainerRef,private injector:Injector,private http: HttpClient){}
+constructor(private viewContainerRef:ViewContainerRef,private injector:Injector,private http: HttpClient,private readonly keycloak: KeycloakService){}
      async ngOnInit() {
       // console.log(window);
       window.callAngularFunction = this.angularFunction.bind(this);
+
+
+
        const remote  = await loadRemoteModule({
         // remoteName: 'reactRemote',
         type: 'module',
@@ -31,18 +35,19 @@ constructor(private viewContainerRef:ViewContainerRef,private injector:Injector,
         remoteEntry: 'http://localhost:4173/assets/remoteEntry.js',
         exposedModule: './MyReactComponent',
       });
-       const zustand  = await loadRemoteModule({
-        // remoteName: 'reactRemote',
-        type: 'module',
-        // remoteEntry: 'http://localhost:3000/remoteEntry.js',
-        remoteEntry: 'http://localhost:4173/assets/remoteEntry.js',
-        exposedModule: './store',
-      });
-      const ReactButton = remote.default; // Assuming default export
+      //  const zustand  = await loadRemoteModule({
+      //   // remoteName: 'reactRemote',
+      //   type: 'module',
+      //   // remoteEntry: 'http://localhost:3000/remoteEntry.js',
+      //   remoteEntry: 'http://localhost:4173/assets/remoteEntry.js',
+      //   exposedModule: './store',
+      // });
+      console.log(remote,"remote");
+            const ReactButton = remote.default; // Assuming default export
       const reactElement = React.createElement(ReactButton, {
         ls: 'Click Btn',
       });
-      console.log(zustand);
+      // console.log(zustand);
 
       const container = this.containerRef.nativeElement;
       const root = ReactDOM.createRoot(container);
